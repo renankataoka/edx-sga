@@ -129,6 +129,13 @@ class StaffGradedAssignmentXBlock(XBlock):
         default=None,
         help="When the annotated file was uploaded")
 
+    # Sciere
+    allowed_formats = String(
+        display_name="Allowed formats",
+        scope=Scope.settings,
+        default=None,
+        help="The allowed formats of the file being uploaded")
+
     def max_score(self):
         """
         Return the maximum score possible.
