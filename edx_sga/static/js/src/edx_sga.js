@@ -46,7 +46,7 @@ function StaffGradedAssignmentXBlock(runtime, element) {
                             // Checks if file format is allowed
                             if (data.files[0].name.split('.').length > 1) {
                                 if (allowed_formats.indexOf(data.files[0].name.split('.')[data.files[0].name.split('.').length - 1]) <= -1) {
-                                    state.error = 'The file you are trying to upload has an invalid format.';
+                                    state.error = 'The file you are trying to upload has an invalid format. Please, submit you assignment with one of the following formats: ' + allowed_formats.join(", ");
                                     render(state);
                                     return;
                                 }

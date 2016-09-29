@@ -7,10 +7,7 @@
        <b><%= display_name %></b>
     <% } %>
     <% if (uploaded) { %>
-       <b>Rarara: <%= uploaded.filename %></b>
-    <% } %>
-    <% if (uploaded) { %>
-      <p><b>File uploaded</b> 
+      <p><b>File uploaded</b>
         <a href="<%= downloadUrl %>"><%= uploaded.filename %></a></p>
     <% } else { %>
       <p>No file has been uploaded.</p>

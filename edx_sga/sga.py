@@ -65,7 +65,7 @@ class StaffGradedAssignmentXBlock(XBlock):
     STUDENT_FILEUPLOAD_MAX_SIZE = 4 * 1000 * 1000  # 4 MB
 
     display_name = String(
-        default='Staff Graded Assignment', scope=Scope.settings,
+        default='TA Graded Assignment', scope=Scope.settings,
         help="This name appears in the horizontal navigation at the top of "
              "the page."
     )
