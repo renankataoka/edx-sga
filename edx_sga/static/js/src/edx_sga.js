@@ -26,6 +26,9 @@ function StaffGradedAssignmentXBlock(runtime, element) {
             // Render template
             var content = $(element).find('#sga-content').html(template(state));
 
+            // Allowed formats
+            var allowed_formats = ["pdf", "txt", "doc", "docx"];
+
             // Set up file upload
             var fileUpload = $(content).find('.fileupload').fileupload({
                 url: uploadUrl,
@@ -40,6 +43,14 @@ function StaffGradedAssignmentXBlock(runtime, element) {
                             var block = $(element).find(".sga-block");
                             var data_max_size = block.attr("data-max-size");
                             var size = data.files[0].size;
+                            // Checks if file format is allowed
+                            if (data.files[0].name.split('.').length > 1) {
+                                if (allowed_formats.indexOf(data.files[0].name.split('.')[data.files[0].name.split('.').length - 1]) <= -1) {
+                                    state.error = 'The file you are trying to upload has an invalid format.';
+                                    render(state);
+                                    return;
+                                }
+                            }
                             if (!_.isUndefined(size)) {
                                 //if file size is larger max file size define in env(django)
                                 if (size >= data_max_size) {
