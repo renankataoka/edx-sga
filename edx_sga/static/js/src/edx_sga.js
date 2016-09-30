@@ -27,7 +27,7 @@ function StaffGradedAssignmentXBlock(runtime, element) {
             var content = $(element).find('#sga-content').html(template(state));
 
             // Allowed formats
-            var allowed_formats = ["pdf", "txt", "doc", "docx"];
+            var allowed_formats = ["pdf", "png", "gif", "jpeg", "jpg", "bmp"];
 
             // Set up file upload
             var fileUpload = $(content).find('.fileupload').fileupload({
